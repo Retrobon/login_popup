@@ -1,0 +1,7 @@
+login_popup:
+  version: 1.x
+
+  dependencies:
+    - core/jquery
+    - core/drupal.dialog.ajax
+    - core/jquery.form

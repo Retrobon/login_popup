@@ -1,0 +1,5 @@
+name: 'loginPopup'
+type: module
+description: 'Add link to popup login form'
+core: 8.x
+package: 'Custom'

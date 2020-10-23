@@ -1,0 +1,26 @@
+<?php
+
+use Drupal\Core\Url;
+
+function login_popup_preprocess_page(array &$variables): void {
+  $variables['#attached']['library'][] = 'login_popup/login_popup';
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function login_popup_preprocess_menu__account(&$variables) {
+  $link_options = [
+    'attributes' => [
+      'class' => ['use-ajax'],
+      'data-dialog-type' => 'modal',
+    ],
+    'query' => [
+      'destination' => Url::fromRoute('<current>')->toString(),
+    ]
+  ];
+
+  if(!$variables['logged_in']) {
+    $variables['items']['user.logout']['url']->setOptions($link_options);
+  }
+}
